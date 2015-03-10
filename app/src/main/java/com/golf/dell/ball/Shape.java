@@ -31,7 +31,7 @@ public class Shape {
 
     private void init(int stacks, int slices, float radius, float squash, String textureFile) {
         float[] vertexData;
-        float[] colorData; //2
+        float[] colorData;
         float[] normalData;
         float colorIncrement = 0f;
         float blue = 0f;
@@ -42,14 +42,14 @@ public class Shape {
         int nIndex = 0;
         m_Scale = radius;
         m_Squash = squash;
-        colorIncrement = 1.0f / (float) stacks;////////////////////////////////
+        colorIncrement = 1.0f / (float) stacks;
         {
             m_Stacks = stacks;
             m_Slices = slices;
 
-            vertexData = new float[3 * ((m_Slices * 2 + 2) * m_Stacks)]; //4
+            vertexData = new float[3 * ((m_Slices * 2 + 2) * m_Stacks)];
 
-            colorData = new float[(4 * (m_Slices * 2 + 2) * m_Stacks)]; //5
+            colorData = new float[(4 * (m_Slices * 2 + 2) * m_Stacks)];
             normalData = new float[(3 * (m_Slices * 2 + 2) * m_Stacks)];
             int phiIdx, thetaIdx;
 
@@ -61,7 +61,7 @@ public class Shape {
 
                 float phi1 = (float) Math.PI * ((float) (phiIdx + 1) *
                         (1.0f / (float) (m_Stacks)) - 0.5f);
-                float cosPhi0 = (float) Math.cos(phi0); //9
+                float cosPhi0 = (float) Math.cos(phi0);
                 float sinPhi0 = (float) Math.sin(phi0);
                 float cosPhi1 = (float) Math.cos(phi1);
                 float sinPhi1 = (float) Math.sin(phi1);
@@ -73,13 +73,13 @@ public class Shape {
                             (1.0 / (float) (m_Slices - 1)));
                     cosTheta = (float) Math.cos(theta);
                     sinTheta = (float) Math.sin(theta);
-                    vertexData[vIndex + 0] = m_Scale * cosPhi0 * cosTheta; //11
+                    vertexData[vIndex + 0] = m_Scale * cosPhi0 * cosTheta;
                     vertexData[vIndex + 1] = m_Scale * (sinPhi0 * m_Squash);
                     vertexData[vIndex + 2] = m_Scale * (cosPhi0 * sinTheta);
                     vertexData[vIndex + 3] = m_Scale * cosPhi1 * cosTheta;
                     vertexData[vIndex + 4] = m_Scale * (sinPhi1 * m_Squash);
                     vertexData[vIndex + 5] = m_Scale * (cosPhi1 * sinTheta);
-                    colorData[cIndex + 0] = (float) red; //12
+                    colorData[cIndex + 0] = (float) red;
                     colorData[cIndex + 1] = (float) 0f;
                     colorData[cIndex + 2] = (float) blue;
                     colorData[cIndex + 4] = (float) red;
@@ -96,10 +96,10 @@ public class Shape {
                     normalData[nIndex + 4] = sinPhi1;
                     normalData[nIndex + 5] = cosPhi1 * sinTheta;
 
-                    cIndex += 2 * 4; //13
-                    vIndex += 2 * 3; //14
+                    cIndex += 2 * 4;
+                    vIndex += 2 * 3;
                 }
-                //blue += colorIncrement;
+
                 red -= colorIncrement;
 
                 vertexData[vIndex + 0] = vertexData[vIndex + 3] = vertexData[vIndex - 3];

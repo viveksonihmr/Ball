@@ -22,27 +22,18 @@ public class Renderer implements GLSurfaceView.Renderer {
         float[] pos = {50.0f, 0.0f, 3.0f, 1.0f};
 
         float[] white = {1.0f, 1.0f, 1.0f, 1.0f};
-        float[] red={1.0f, 0.0f, 0.0f, 1.0f};
-        float[] green={0.0f,1.0f,0.0f,1.0f};
-        float[] blue={0.0f, 0.0f, 1.0f, 1.0f};
-        float[] cyan={0.0f, 1.0f, 1.0f, 1.0f};
-        //float[] yellow={1.0f, 1.0f, 0.0f, 1.0f};
-        float[] magenta={1.0f, 0.0f, 1.0f, 1.0f};
-        float[] halfcyan={0.0f, 0.5f, 0.5f, 1.0f};
-
 
         gl.glLightfv(SS_SUNLIGHT, GL10.GL_POSITION, FloatBuffer.wrap(pos));
 
-        gl.glLightfv(SS_SUNLIGHT, GL10.GL_DIFFUSE, FloatBuffer.wrap(green));
+        gl.glLightfv(SS_SUNLIGHT, GL10.GL_DIFFUSE, FloatBuffer.wrap(white));
 
-        gl.glLightfv(SS_SUNLIGHT,GL10.GL_SPECULAR, FloatBuffer.wrap(red));
-        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_SPECULAR,FloatBuffer.wrap(red));
+        gl.glLightfv(SS_SUNLIGHT,GL10.GL_SPECULAR, FloatBuffer.wrap(white));
+        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_SPECULAR,FloatBuffer.wrap(white));
 
-        gl.glLightfv(SS_SUNLIGHT,GL10.GL_AMBIENT, FloatBuffer.wrap(blue));
-        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_AMBIENT,FloatBuffer.wrap(blue));
+        gl.glLightfv(SS_SUNLIGHT,GL10.GL_AMBIENT, FloatBuffer.wrap(white));
+        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_AMBIENT,FloatBuffer.wrap(white));
 
-        //float[] colorVector = {0.2f, 0.2f, 0.2f, 0.5f};
-        //gl.glLightModelfv(GL10.GL_LIGHT_MODEL_AMBIENT,FloatBuffer.wrap(colorVector));
+
         float[] yellow={0.5f, 0.5f, 0.0f, 1.0f};
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK,GL10.GL_EMISSION, FloatBuffer.wrap(white));
 
@@ -63,7 +54,7 @@ public class Renderer implements GLSurfaceView.Renderer {
     private void initGeometry(GL10 gl) {
     }
 
-    @Override
+
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         gl.glDisable(GL10.GL_DITHER);
 
@@ -82,9 +73,6 @@ public class Renderer implements GLSurfaceView.Renderer {
         gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
     }
 
-
-
-    @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
         gl.glViewport(0, 0, width, height);
         float aspectRatio;
@@ -102,7 +90,7 @@ public class Renderer implements GLSurfaceView.Renderer {
 
     }
 
-    @Override
+
     public void onDrawFrame(GL10 gl) {
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
         gl.glClearColor(0.0f,0.0f,0.0f,1.0f);
