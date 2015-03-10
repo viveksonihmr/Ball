@@ -104,6 +104,6 @@ public class Renderer implements GLSurfaceView.Renderer {
 
         mShape.draw(gl);
         mTransY +=0;
-        mAngle +=7.0;
+        mAngle +=10.0;
     }
 }
