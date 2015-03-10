@@ -21,7 +21,7 @@ public class Shape {
     int m_Stacks, m_Slices;
 
 
-    public Shape(int stacks, int slices, float radius, float squash) {
+    public Shape(int stacks, int slices, float radius, float squash) { //Ball
         this.m_Stacks = stacks;
         this.m_Slices = slices;
         this.m_Radius = radius;
