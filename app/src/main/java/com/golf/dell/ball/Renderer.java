@@ -58,7 +58,7 @@ public class Renderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         gl.glDisable(GL10.GL_DITHER);
 
-        gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+        gl.glClearColor(0.0f, 1.0f, 0.0f, 0.5f);
 
         gl.glEnable(GL10.GL_CULL_FACE);
         gl.glCullFace(GL10.GL_BACK);
@@ -93,7 +93,7 @@ public class Renderer implements GLSurfaceView.Renderer {
 
     public void onDrawFrame(GL10 gl) {
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-        gl.glClearColor(0.0f,0.0f,0.0f,1.0f);
+        gl.glClearColor(0.0f,1.0f,0.4f,1.0f);
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
 
